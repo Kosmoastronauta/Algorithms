@@ -10,8 +10,8 @@ public class Main
         CycledList<Integer> list = new CycledList<>();
         System.out.println(list.isEmpty());
         list.addBack(2);
-        System.out.println(list.popBack());
         System.out.println(list.getBack());
+
 
 //        Scanner input = new Scanner(System.in);
 //        int p;

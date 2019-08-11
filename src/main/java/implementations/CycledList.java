@@ -57,8 +57,8 @@ public class CycledList<T>
         {
             Node newBack = new Node(value);
 
-            newBack.prev = this.head.prev;
             newBack.next = this.head;
+            newBack.prev = this.head.prev;
             this.head.prev = newBack;
         }
     }
@@ -103,14 +103,14 @@ public class CycledList<T>
 
     public T getFront()
     {
-        if(this.isEmpty()) return (T) this.head.data;
+        if(!this.isEmpty()) return (T) this.head.data;
 
         else throw new NullPointerException("There is nothing in front");
     }
 
     public T getBack()
     {
-        if(this.isEmpty()) return (T) this.head.prev.data;
+        if(!this.isEmpty()) return (T) this.head.prev.data;
 
         else throw new NullPointerException("There is nothing in back");
     }
