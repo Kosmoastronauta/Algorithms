@@ -18,5 +18,19 @@ public class CycledList<T>
 
     Node head;
 
+    public boolean isEmpty()
+    {
+        return this.head == null;
+    }
+
+    public void addFront(T value)
+    {
+        Node newFront = new Node(value);
+
+        newFront.prev = this.head.prev;
+        newFront.next = this.head;
+        this.head.prev = newFront;
+        this.head = newFront;
+    }
 
 }
