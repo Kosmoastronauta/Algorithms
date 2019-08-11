@@ -33,6 +33,4 @@ public class BinarySearchTest
         Assert.assertEquals(BinarySearch.find(tab,180),-1);
     }
 
-
 }
-
