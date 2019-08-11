@@ -114,5 +114,4 @@ public class CycledList<T>
 
         else throw new NullPointerException("There is nothing in back");
     }
-
 }
