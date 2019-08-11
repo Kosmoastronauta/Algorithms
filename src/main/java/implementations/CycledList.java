@@ -65,12 +65,17 @@ public class CycledList<T>
 
     public T popFront()
     {
-        if(this.head != null)
+        if(!this.isEmpty())
         {
+            boolean willBeEmpty = false;
+            if(this.head==this.head.prev) willBeEmpty = true;
+
             T value = (T)this.head.next.data;
             this.head.prev.next = this.head.next;
             this.head.next.prev = this.head.prev;
             this.head = this.head.next;
+
+            if(willBeEmpty) this.head = null;
 
             return value;
         }
@@ -80,12 +85,17 @@ public class CycledList<T>
 
     public T popBack()
     {
-        if(this.head != null)
+        if(!this.isEmpty())
         {
+            boolean willBeEmpty = false;
+            if(this.head==this.head.prev) willBeEmpty = true;
+
             T value = (T) this.head.prev.data;
             this.head.prev.prev.next = this.head.prev;
             this.head.prev = this.head.prev.prev;
 
+            if(willBeEmpty)
+            this.head = null;
             return value;
         }
         else throw new NullPointerException("There is nothing to popBack");
@@ -93,14 +103,14 @@ public class CycledList<T>
 
     public T getFront()
     {
-        if(this.head != null) return (T) this.head.data;
+        if(this.isEmpty()) return (T) this.head.data;
 
         else throw new NullPointerException("There is nothing in front");
     }
 
     public T getBack()
     {
-        if(this.head.prev != null) return (T) this.head.prev.data;
+        if(this.isEmpty()) return (T) this.head.prev.data;
 
         else throw new NullPointerException("There is nothing in back");
     }

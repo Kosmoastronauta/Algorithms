@@ -7,14 +7,11 @@ public class Main
 {
     public static void main(String[] args)
     {
-
         CycledList<Integer> list = new CycledList<>();
         System.out.println(list.isEmpty());
         list.addBack(2);
-        System.out.println(list.getFront());
-      //  System.out.println(list.getBack());
-        list.addFront(3);
-        System.out.println(list.getFront());
+        System.out.println(list.popBack());
+        System.out.println(list.getBack());
 
 //        Scanner input = new Scanner(System.in);
 //        int p;
