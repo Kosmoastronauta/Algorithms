@@ -132,7 +132,7 @@ public class CycledListTest
         list.addBack(4);
         list.addFront(2);
         //Then
-        Assert.assertEquals(new Integer(2),list.getFront());
+        Assert.assertEquals(Integer.valueOf(2),list.getFront());
     }
 
     @Test
@@ -145,6 +145,6 @@ public class CycledListTest
         list.addBack(4);
         list.addFront(2);
         //Then
-        Assert.assertEquals(new Integer(4),list.getBack());
+        Assert.assertEquals(Integer.valueOf(4),list.getBack());
     }
 }
