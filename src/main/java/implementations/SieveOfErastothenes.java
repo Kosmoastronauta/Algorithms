@@ -25,12 +25,16 @@ public class SieveOfErastothenes
                 primesCandidates[i * j] = true;
             }
         }
+        this.fillListWithPrimes();
+    }
 
-        for(int i = 2; i <=n; i++)
+    private void fillListWithPrimes()
+    {
+        for(int i = 2; i <=this.size; i++)
         {
             if(!primesCandidates[i])
             {
-
+                listOfPrimes.add(i);
             }
         }
     }
