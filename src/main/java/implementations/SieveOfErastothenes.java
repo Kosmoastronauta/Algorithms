@@ -6,7 +6,7 @@ import java.util.List;
 
 public class SieveOfErastothenes
 {
-    private final int size = 500000000;
+    private final int size = 50000000;
     private boolean[] primesCandidates;
     private List<Long> listOfPrimes;
 
@@ -34,22 +34,11 @@ public class SieveOfErastothenes
         {
             if(!primesCandidates[i])
             {
+                this.listOfPrimes.add((long)i); // adding to list of prime numbers
                 for(int j = i * i; j < this.size; j+=i)
                 {
                     primesCandidates[j] = true;
                 }
-            }
-        }
-        this.fillListWithPrimes();
-    }
-
-    private void fillListWithPrimes()
-    {
-        for(int i = 2; i <=this.size; i++)
-        {
-            if(!this.primesCandidates[i])
-            {
-                this.listOfPrimes.add((long)i);
             }
         }
     }

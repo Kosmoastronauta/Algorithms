@@ -10,7 +10,7 @@ public class Main
     public static void main(String[] args)
     {
         SieveOfErastothenes sieve = new SieveOfErastothenes();
-        System.out.println(sieve.getPrime(4));
+        System.out.println(sieve.getPrime(100));
 
 //        Scanner input = new Scanner(System.in);
 //        int p;
