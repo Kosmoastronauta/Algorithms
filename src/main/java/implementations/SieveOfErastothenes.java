@@ -1,28 +1,43 @@
 package implementations;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SieveOfErastothenes
 {
-    private int size;
+    private final int size = 500000000;
     private boolean[] primesCandidates;
-    private List<Integer> listOfPrimes;
+    private List<Long> listOfPrimes;
 
-    public SieveOfErastothenes(int n)
+    public SieveOfErastothenes()
     {
-        this.size = n;
-        this.primesCandidates = new boolean[n + 1]; //default is false
+        this.primesCandidates = new boolean[this.size+1]; //default is false
         listOfPrimes = new ArrayList<>();
+        this.generatePrimes();
     }
 
-    private void generatePrimes(int n)
+    public Long getPrime(int index) // gives nth prime number
     {
-        for(int i = 2; i <=n; i++)
+        try
         {
-            for(int j = 2; j*i <=n; j++)
+            return listOfPrimes.get(index);
+        }catch(IndexOutOfBoundsException e)
+        {
+            throw new InvalidParameterException("Invalid number");
+        }
+    }
+
+    private void generatePrimes()
+    {
+        for(int  i = 2; i*i <=this.size; i++)
+        {
+            if(!primesCandidates[i])
             {
-                primesCandidates[i * j] = true;
+                for(int j = i * i; j < this.size; j+=i)
+                {
+                    primesCandidates[j] = true;
+                }
             }
         }
         this.fillListWithPrimes();
@@ -32,9 +47,9 @@ public class SieveOfErastothenes
     {
         for(int i = 2; i <=this.size; i++)
         {
-            if(!primesCandidates[i])
+            if(!this.primesCandidates[i])
             {
-                listOfPrimes.add(i);
+                this.listOfPrimes.add((long)i);
             }
         }
     }
