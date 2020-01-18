@@ -1,17 +1,16 @@
 import implementations.CycledList;
 import implementations.QuickUnion;
+import implementations.SieveOfErastothenes;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main
 {
     public static void main(String[] args)
     {
-        CycledList<Integer> list = new CycledList<>();
-        System.out.println(list.isEmpty());
-        list.addBack(2);
-        System.out.println(list.getBack());
-
+        SieveOfErastothenes sieve = new SieveOfErastothenes();
+        System.out.println(sieve.getPrime(100));
 
 //        Scanner input = new Scanner(System.in);
 //        int p;
